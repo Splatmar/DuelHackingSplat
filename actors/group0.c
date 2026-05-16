@@ -30,3 +30,8 @@
 #include "src/s2d_engine/s2d_config.h"
 #include FONT_C_FILE
 #endif
+
+#include "lava_floor/model.inc.c"
+#include "lava_floor/collision.inc.c"
+#include "lava_door/collision.inc.c"
+#include "lava_door/model.inc.c"

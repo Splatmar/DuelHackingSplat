@@ -331,4 +331,12 @@ extern const Gfx white_particle_small_dl_end[];
 extern const Gfx white_particle_small_dl[];
 extern const Gfx white_particle_small_unused_dl[];
 
+#include "lava_floor/geo_header.h"
+
+#include "lava_floor/collision_header.h"
+
+#include "lava_door/collision_header.h"
+
+#include "lava_door/geo_header.h"
+
 #endif

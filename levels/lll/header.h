@@ -3,6 +3,8 @@
 
 #include "types.h"
 #include "game/moving_texture.h"
+#include "actors/lava_floor/geo_header.h"
+#include "actors/lava_door/geo_header.h"
 
 // geo
 extern const GeoLayout lll_geo_0009E0[];

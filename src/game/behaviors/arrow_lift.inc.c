@@ -89,3 +89,45 @@ void bhv_arrow_lift_loop(void) {
             break;
     }
 }
+void bhv_trigger_lava_loop(void) {
+
+    struct Object *lava = cur_obj_nearest_object_with_behavior(bhvRisingLava);
+    struct Object *door = cur_obj_nearest_object_with_behavior(bhvDoorCustom);
+    if (o->oDistanceToMario < 200.0f && door->oF4 == 0) {
+            
+            
+           
+            lava->oF4 = 1;
+            door->oF4 = 1;
+        
+        
+    }
+}
+void bhv_rising_lava_loop(void) {
+    if (o->oTimer == 950) o->oF4 = 0;
+    if (o->oF4 == 1) {
+        if (o->oTimer > 59) o->oPosY += 5.2f;
+        
+    }
+    else {
+        o->oTimer = 1;
+    }
+
+    
+}
+void bhv_door_custom_loop(void) {
+    
+    if (o->oTimer == 20 && o->oF4 == 1) {
+        play_sound(SOUND_OBJ_BOWSER_WALK, gGlobalSoundSource);
+        set_camera_shake_from_hit(SHAKE_POS_LARGE);
+        o->oF4 = 2;
+    }
+     if (o->oF4 == 1 && o->oTimer < 30) {
+         o->oPosY -= 40.0f;
+        
+    }
+    else {
+        o->oTimer = 1;
+    }
+        
+}

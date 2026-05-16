@@ -546,5 +546,7 @@ extern const BehaviorScript bhvPushableRollingLog[];
 extern const BehaviorScript bhvRisingLava[];
 extern const BehaviorScript bhvVolcanoPlatform1[];
 extern const BehaviorScript bhvVolcanoPlatform2[];
+extern const BehaviorScript bhvTriggerLava[];
+extern const BehaviorScript bhvDoorCustom[];
 
 #endif // BEHAVIOR_DATA_H

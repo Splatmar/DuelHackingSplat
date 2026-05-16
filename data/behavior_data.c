@@ -6100,12 +6100,21 @@ const BehaviorScript bhvPushableRollingLog[] = {
         CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };
+const BehaviorScript bhvTriggerLava[] = {
+    BEGIN(OBJ_LIST_LEVEL),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_COMPUTE_DIST_TO_MARIO)),
+    
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_trigger_lava_loop),
+    END_LOOP(),
+};
 
 const BehaviorScript bhvRisingLava[] = {
     BEGIN(OBJ_LIST_SURFACE),
     OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
-    LOAD_COLLISION_DATA(metal_box_seg8_collision_08024C28),
+    LOAD_COLLISION_DATA(lava_floor_collision),
     BEGIN_LOOP(),
+        CALL_NATIVE(bhv_rising_lava_loop),
         CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };
@@ -6126,6 +6135,15 @@ const BehaviorScript bhvVolcanoPlatform2[] = {
     OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
     LOAD_COLLISION_DATA(metal_box_seg8_collision_08024C28),
     BEGIN_LOOP(),
+        CALL_NATIVE(load_object_collision_model),
+    END_LOOP(),
+};
+const BehaviorScript bhvDoorCustom[] = {
+    BEGIN(OBJ_LIST_SURFACE),
+    OR_INT(oFlags, (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_COLLISION_DATA(lava_door_collision),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_door_custom_loop),
         CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };
