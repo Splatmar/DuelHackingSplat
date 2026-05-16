@@ -1,0 +1,15 @@
+extern const GeoLayout volcano_lift_geo[];
+extern u8 volcano_lift_quartz_block_lines_ci8[];
+extern u8 volcano_lift_quartz_block_lines_pal_rgba16[];
+extern u8 volcano_lift_quartz_block_lines_top_ci8[];
+extern u8 volcano_lift_quartz_block_lines_top_pal_rgba16[];
+extern Vtx volcano_lift_volcano_lift_mesh_layer_1_vtx_cull[8];
+extern Vtx volcano_lift_volcano_lift_mesh_layer_1_vtx_0[8];
+extern Gfx volcano_lift_volcano_lift_mesh_layer_1_tri_0[];
+extern Vtx volcano_lift_volcano_lift_mesh_layer_1_vtx_1[8];
+extern Gfx volcano_lift_volcano_lift_mesh_layer_1_tri_1[];
+extern Gfx mat_volcano_lift_border_layer1[];
+extern Gfx mat_revert_volcano_lift_border_layer1[];
+extern Gfx mat_volcano_lift_top_layer1[];
+extern Gfx mat_revert_volcano_lift_top_layer1[];
+extern Gfx volcano_lift_volcano_lift_mesh_layer_1[];

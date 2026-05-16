@@ -24,9 +24,9 @@ static s32 arrow_lift_move_away(void) {
     o->oArrowLiftDisplacement += o->oForwardVel;
 
     // Stop the platform after moving 384 units.
-    if (o->oArrowLiftDisplacement > 384) {
+    if (o->oArrowLiftDisplacement > 500) {
         o->oForwardVel = 0;
-        o->oArrowLiftDisplacement = 384;
+        o->oArrowLiftDisplacement = 500;
         doneMoving = TRUE;
     }
 
