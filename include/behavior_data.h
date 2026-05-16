@@ -540,5 +540,11 @@ extern const BehaviorScript bhvEndBirds1[];
 extern const BehaviorScript bhvEndBirds2[];
 extern const BehaviorScript bhvIntroScene[];
 extern const BehaviorScript bhvUnusedFakeStar[];
+extern const BehaviorScript bhvBullyPlatform[];
+extern const BehaviorScript bhvPuzzlePieces[];
+extern const BehaviorScript bhvPushableRollingLog[];
+extern const BehaviorScript bhvRisingLava[];
+extern const BehaviorScript bhvVolcanoPlatform1[];
+extern const BehaviorScript bhvVolcanoPlatform2[];
 
 #endif // BEHAVIOR_DATA_H
