@@ -130,4 +130,8 @@ extern const LevelScript level_lll_entry[];
 
 
 #include "levels/lll/header.inc.h"
+#include "levels/lll/volcano_lift/collision_header.h"
+
+#include "levels/lll/volcano_lift/geo_header.h"
+
 #endif

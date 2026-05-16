@@ -44,3 +44,4 @@
 #include "levels/lll/areas/2/geo.inc.c"
 
 #include "levels/lll/geo.inc.c"
+#include "levels/lll/volcano_lift/geo.inc.c"
