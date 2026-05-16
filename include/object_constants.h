@@ -937,11 +937,12 @@ enum oActionsStarDoor {
     #define BULLY_BP_SIZE_BIG                               0x1
     /* oAction */
     #define BULLY_ACT_PATROL                                0x0
-    #define BULLY_ACT_CHASE_MARIO                           0x1
-    #define BULLY_ACT_KNOCKBACK                             0x2
-    #define BULLY_ACT_BACK_UP                               0x3
-    #define BULLY_ACT_INACTIVE                              0x4
-    #define BULLY_ACT_ACTIVATE_AND_FALL                     0x5
+    #define BULLY_ACT_JUMP                                  0x1
+    #define BULLY_ACT_CHASE_MARIO                           0x2
+    #define BULLY_ACT_KNOCKBACK                             0x3
+    #define BULLY_ACT_BACK_UP                               0x4
+    #define BULLY_ACT_INACTIVE                              0x5
+    #define BULLY_ACT_ACTIVATE_AND_FALL                     0x6
     /* oBullySubtype */
     #define BULLY_STYPE_GENERIC                             0x00
     #define BULLY_STYPE_MINION                              0x01

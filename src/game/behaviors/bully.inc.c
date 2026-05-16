@@ -88,6 +88,41 @@ void bully_act_chase_mario(void) {
     }
 }
 
+void bully_act_jump(void) {
+    f32 homeX = o->oHomeX;
+    f32 posY = o->oPosY;
+    f32 homeZ = o->oHomeZ;
+    f32 floorY = 0;
+
+    obj_turn_toward_object(o, gMarioObject, O_MOVE_ANGLE_YAW_INDEX, 0x1000);
+
+    switch (o->oSubAction) {
+        case 0: // init jump
+            o->oVelY = 300;
+            o->oFriction = 1.0f;
+            o->oBuoyancy = 0.0f;
+            o->oSubAction++;
+            break;
+    
+        case 1: // tempo
+            if(o->oTimer > 10) o->oSubAction++;
+            break;
+
+        case 2: // wait to be on ground
+            floorY = find_floor_height(o->oPosX, o->oPosY, o->oPosZ);
+            if(o->oPosY <= floorY) {
+                gMarioObject->oInteractStatus |= INT_STATUS_MARIO_STUNNED;
+                o->oFriction = 0.93f;
+                o->oBuoyancy = 1.3f;
+                o->oVelY = 0;
+                o->oAction = BULLY_ACT_CHASE_MARIO;
+                cur_obj_init_animation(0);
+            }
+            break;
+    }
+    print_text_fmt_int(10, 10, "sub %d", o->oSubAction);
+}
+
 void bully_act_knockback(void) {
     if (o->oForwardVel < 10.0f && (s32) o->oVelY == 0) {
         o->oForwardVel = 1.0f;
@@ -166,7 +201,7 @@ void bully_play_stomping_sound(void) {
 void bully_step(void) {
     s16 collisionFlags = object_step();
 
-    bully_backup_check(collisionFlags);
+    if(o->oAction != BULLY_ACT_JUMP) bully_backup_check(collisionFlags);
     bully_play_stomping_sound();
     obj_check_floor_death(collisionFlags, sObjFloor);
 
@@ -223,10 +258,19 @@ void bhv_bully_loop(void) {
             o->oForwardVel = 5.0f;
 
             if (obj_return_home_if_safe(o, o->oHomeX, o->oPosY, o->oHomeZ, 800) == TRUE) {
-                o->oAction = BULLY_ACT_CHASE_MARIO;
+                if(cur_obj_has_behavior(bhvBigBully)) {
+                    o->oAction = BULLY_ACT_JUMP;
+                } else {
+                    o->oAction = BULLY_ACT_CHASE_MARIO;
+                }
                 cur_obj_init_animation(1);
             }
 
+            bully_step();
+            break;
+        
+        case BULLY_ACT_JUMP:
+            bully_act_jump();
             bully_step();
             break;
 
