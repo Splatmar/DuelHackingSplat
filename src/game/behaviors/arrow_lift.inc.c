@@ -131,3 +131,40 @@ void bhv_door_custom_loop(void) {
     }
         
 }
+void bhv_pushable_rolling_log_loop(void) {
+f32 distToMario = o->oDistanceToMario;
+print_text_fmt_int(20, 20, "DIST TO MARIO: %d", (s32) o->oTimer);
+    switch (o->oAction) {
+        case 0:
+            if (o->oDistanceToMario < 450.0f && gMarioState->action == ACT_JUMP_KICK) {
+                o->oAction = 1;
+                o->oPosY += 20.0f;
+            }
+            o->oTimer = 0;
+        
+
+        
+
+          
+        
+    
+            break;
+        case 1: //avance de malade
+            if(o->oTimer < 4) {
+                o->oPosY += 10.0f;
+            }
+            o->oPosZ -= 32.0f;
+            o->oPosX -= 38.0f;
+             if(o->oTimer >= 4) {
+                o->oPosY -= o->oTimer*1.18; ;
+            }
+            if (o->oTimer ==45) {
+                o->oAction = 2;
+            }
+            break;
+            case 2:
+            break;
+    }
+    
+
+}

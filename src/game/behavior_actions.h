@@ -305,6 +305,7 @@ void bhv_rising_lava_loop(void);
 void bhv_door_custom_loop(void);
 void bhv_big_bully_init(void);
 void bhv_trigger_lava_loop(void);
+void bhv_pushable_rolling_log_loop(void);
 void bhv_big_bully_with_minions_init(void);
 void bhv_big_bully_with_minions_loop(void);
 void bhv_jet_stream_ring_spawner_loop(void);

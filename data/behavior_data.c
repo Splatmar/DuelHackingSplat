@@ -6094,9 +6094,10 @@ const BehaviorScript bhvPuzzlePieces[] = {
 
 const BehaviorScript bhvPushableRollingLog[] = {
     BEGIN(OBJ_LIST_SURFACE),
-    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
-    LOAD_COLLISION_DATA(metal_box_seg8_collision_08024C28),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE| OBJ_FLAG_COMPUTE_DIST_TO_MARIO)),
+    LOAD_COLLISION_DATA(lll_seg7_collision_pitoune),
     BEGIN_LOOP(),
+        CALL_NATIVE(bhv_pushable_rolling_log_loop),
         CALL_NATIVE(load_object_collision_model),
     END_LOOP(),
 };
